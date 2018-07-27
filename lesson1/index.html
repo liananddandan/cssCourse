@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>动画过度效果</title>
+<style>
+.text{
+	transition: color 0.3s;
+	-moz-transition: color 0.3s;	/* Firefox 4 */
+	-webkit-transition: color 0.3s;	/* Safari 和 Chrome */
+	-o-transition: color 0.3s;	/* Opera */
+}
+
+.xian1top{
+	transition:width 0.3s linear;
+	-moz-transition: width 0.3s linear;	 
+	-webkit-transition: width 0.3s linear;	/* Safari 和 Chrome */
+	-o-transition: width 0.3s linear;	/* Opera */
+}
+
+.xian2top{
+	transition:width 0.3s linear;
+	-moz-transition: width 0.3s linear;	 
+	-webkit-transition: width 0.3s linear;	/* Safari 和 Chrome */
+	-o-transition: width 0.3s linear;	/* Opera */
+}
+
+.text{width: 100px; line-height: 30px; text-align: center;}
+.duan1{width: 50px; height: 3px;  position: relative;}
+.duan2{width: 50px; height: 3px; position: relative; top: -3px; z-index: 1;}
+.xian1{width: 50px; height:3px; background:#FF0000; position:absolute; left: 0;}
+.xian1top{width: 50px; height:3px; background:#FFFFFF; position: absolute; left: 0;}
+.xian2top{width: 0px; height:3px; background:#FF0000; position:absolute;left: 50px; }
+.button{border-radius:5px; background: white; position:relative; top: 10px;} 
+
+</style>
+<script>
+	let click = false
+	function changestyle(){
+		if(click){
+		document.getElementById("show-text").style.color = "#000000"
+		document.getElementById("show-line1top").style.width = 50+"px"
+		document.getElementById("show-line2top").style.width = 0+"px"	
+		click = false
+		} else {
+		document.getElementById("show-text").style.color = "#FF0000"
+		document.getElementById("show-line1top").style.width = 0+"px"
+		document.getElementById("show-line2top").style.width = 50+"px"
+		click = true
+		}
+	}
+</script>
+</head>
+
+<body>
+<div class="text" id="show-text">前端学院</div>
+<div class="duan1">
+<div class="xian1" id="show-line1"></div>
+</div>
+<div class="duan2">
+<div class="xian1top" id="show-line1top"></div>
+<div class="xian2top" id="show-line2top"></div>
+</div>
+<button class="button" onclick="changestyle()">切换样式</button>
+
+</body>
+</html>
